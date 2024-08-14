@@ -67,6 +67,7 @@ class DataTransformation:
         
     def initiate_data_transformation(self, train_path, test_path):
 
+        logging.info("#################### Data Transformation Started ####################")
         try:
             train_df = pd.read_csv(train_path)
             test_df = pd.read_csv(test_path)
@@ -99,12 +100,12 @@ class DataTransformation:
                 input_feature_test_arr, np.array(target_feature_test_df)
             ]
             
-            logging.info("Data Transformation Completed")
-
             save_object(
                 file_path = self.data_transformation_config.preprocessor_obj_file_path,
                 obj = preprocessor_obj
             )
+
+            logging.info("#################### Data Transformation Completed ####################")
 
             return (
                 train_arr,
