@@ -20,7 +20,7 @@ class DataIngestion:
         self.ingestion_config = DataIngestionConfig()
 
     def initiate_data_ingestion(self):
-        logging.info("Entered the data ingestion method or component")
+        logging.info("#################### Data Ingestion Started ####################")
         try:
             df = pd.read_csv('notebook\data\stud.csv')
             logging.info("Read the Dataset as DataFrame")
@@ -34,7 +34,7 @@ class DataIngestion:
             train_set.to_csv(self.ingestion_config.train_data_path, index=False, header=True)
             test_set.to_csv(self.ingestion_config.test_data_path, index=False, header=True)
 
-            logging.info("Ingestion of the data is completed")
+            logging.info("#################### Data Ingestion Completed ####################")
 
             return(
                 self.ingestion_config.train_data_path,
